@@ -1,0 +1,24 @@
+{
+  "name": "gerdes-node",
+  "version": "1.0.0",
+  "description": "Gerenciador de despachos de viaturas para a Polícia Militar do MS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ".git"
+  },
+  "keywords": [
+    "gerenciador",
+    "despachos"
+  ],
+  "author": "William Scaramuzzi Teixeira",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "sequelize": "^6.6.2"
+  }
+}
