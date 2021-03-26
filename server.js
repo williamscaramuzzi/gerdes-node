@@ -13,6 +13,7 @@ setar a importação de router aqui no futuro
 */
 
 var indexRouter = require("./routes/index");
+var homeRouter = require("./routes/home");
 /** 
  * Montando meu app
  * */
@@ -26,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
  * setar os router no app
  */
  app.use("/", indexRouter);
-
+ app.use("/home", homeRouter);
 /**
  * setar view engine aqui no futuro 
  */

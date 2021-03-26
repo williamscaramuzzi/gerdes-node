@@ -79,3 +79,38 @@ button#botaoEntrar{
 	background-color: #5fc0a8;
   border: 1px #6fd3bc solid;
 }
+
+header#cabecalho{
+  background-image: url("../images/tituloGerdes.png");
+  background-repeat: no-repeat;
+  background-color: #403c4d;
+  height: 130px;
+}
+body#homeBody{
+  background: #323232
+}
+div#navLateral{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  padding: 10px;
+}
+.btnNavLateral{
+  color: white;
+  background-color: #2D333B;
+  border-color: #677587;
+  transition: .2s cubic-bezier(.3,0,.5,1);
+  transition-property: color; 
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.btnNavLateral:hover {
+	background-color: #7A89A0;
+  border: 1px #B4CAEC solid;
+}
