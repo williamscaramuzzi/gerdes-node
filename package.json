@@ -4,11 +4,12 @@
   "description": "Gerenciador de despachos de viaturas para a Polícia Militar do MS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devrun": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": ".git"
+    "url": "https://github.com/williamscaramuzzi/gerdes-node.git"
   },
   "keywords": [
     "gerenciador",
@@ -18,7 +19,10 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "nodemon": "^2.0.7",
     "sequelize": "^6.6.2"
   }
 }
