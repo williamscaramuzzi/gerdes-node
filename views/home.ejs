@@ -5,19 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/stylesheets/estilo.css" />
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <title>Gerenciador de Despachos</title>
 </head>
 
 <%- include("cabecalho.ejs") %>
 
 <body id="homeBody">
-    <div id="navLateral">
-        <button class="btnNavLateral">Ocorrências</button>
-        <button class="btnNavLateral">Viaturas</button>
-        <button class="btnNavLateral">Estatística</button>
-
-    </div>
     
+    <%- include("sidebar.ejs") %>
+    <div class="main_content">
+        <div class="header">
+            Welcome! Have a nice day
+        </div>
+        <div class="info">
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Pariatur laboriosam explicabo officiis incidunt culpa quasi itaque fuga. 
+                Illum, saepe, at accusantium quas facilis quam, numquam suscipit beatae labore nisi dolorum. <br> </div>
+            <div class="divTableOcorrenciasPendentes">
+                <table class="tableOcorrenciasPendentes">
+                    <thead>
+                        <tr>
+                            <th>Selecionar</th>
+                            <th>Fato</th>
+                            <th>Endereço</th>
+                            <th>Solicitante</th>
+                            <th>Nº despacho</th>
+                            <th>Tempo desde inserção</th>
+                            <th>Despachante responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="button" value="Selecionar">
+                            </td>
+                            <td>Furto</td>
+                            <td>Rua das Couves nº 156</td>
+                            <td>José da Silva</td>
+                            <td>342</td>
+                            <td>5:00</td>
+                            <td>Cabo Carlos</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="Selecionar">
+                            </td>
+                            <td>Roubo</td>
+                            <td>Rua das Flores nº 156</td>
+                            <td>André da Silva</td>
+                            <td>343</td>
+                            <td>4:00</td>
+                            <td>Soldado Tiago</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="Selecionar">
+                            </td>
+                            <td>Tráfico de Drogas</td>
+                            <td>Rua Floriano Peixoto nº 892</td>
+                            <td>Joana Diniz</td>
+                            <td>344</td>
+                            <td>2:00</td>
+                            <td>Soldado Tiago</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="Selecionar">
+                            </td>
+                            <td>Perturbação de Sossego</td>
+                            <td>Rua Weimar Torres nº 2080</td>
+                            <td>Maria Aparecida de Jesus</td>
+                            <td>345</td>
+                            <td>5:00</td>
+                            <td>Cabo Carlos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     
     
 </body>

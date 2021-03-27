@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap'); /** Fonte do menu lateral*/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap'); /** Fonte das tabelas*/
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
 body#indexBody{
-    background: rgb(96, 103, 196);
-    background: -moz-linear-gradient(45deg, rgb(96, 103, 196) 0%, rgb(108, 189, 175) 100%);
-    background: -webkit-linear-gradient(45deg, rgb(96, 103, 196) 0%, rgb(108, 189, 175) 100%);
-    background: -o-linear-gradient(45deg, rgb(96, 103, 196) 0%, rgb(108, 189, 175) 100%);
-    background: -ms-linear-gradient(45deg, rgb(96, 103, 196) 0%, rgb(108, 189, 175) 100%);
-    background: linear-gradient(135deg, rgb(96, 103, 196) 0%, rgb(108, 189, 175) 100%);
+    background: rgb(15, 21, 104);
 }
 
 div#divFormLogin{
@@ -83,34 +86,88 @@ button#botaoEntrar{
 header#cabecalho{
   background-image: url("../images/tituloGerdes.png");
   background-repeat: no-repeat;
-  background-color: #403c4d;
+  background-color: #1c1c5f;
   height: 130px;
+}
+header#cabecalho .cabecalhoDadosUser{
+  /* border: 1px #ff0000 solid; */
+  display: flex;
+  position: absolute;
+  margin-top: -100px;
+  margin-left: 90%;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
 }
 body#homeBody{
   background: #323232
 }
-div#navLateral{
+.wrapper{
   display: flex;
-  flex-direction: column;
-  float: left;
-  padding: 10px;
-}
-.btnNavLateral{
-  color: white;
-  background-color: #2D333B;
-  border-color: #677587;
-  transition: .2s cubic-bezier(.3,0,.5,1);
-  transition-property: color; 
-  padding: 5px 16px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  vertical-align: middle;
-  cursor: pointer;
-  border-radius: 6px;
+  position: relative;
 }
 
-.btnNavLateral:hover {
-	background-color: #7A89A0;
-  border: 1px #B4CAEC solid;
+.wrapper .sidebar{
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  background: #1c1c5f;
+  padding: 30px 0;
+}
+
+.wrapper .sidebar h2 {
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;  
+  font-family: 'Josefin Sans', sans-serif;
+}
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+.wrapper .sidebar ul li:hover{
+  background: rgb(73, 188, 145);
+}
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+.main_content{
+  margin-left: 200px;
+  padding: 10px;
+  color: darkgray;
+}
+.tableOcorrenciasPendentes {
+  border-collapse: collapse;
+  margin: 25px 0;
+  margin-left: 50px;
+  font-size: 0.9em;
+  min-width: 400px;
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+}
+.tableOcorrenciasPendentes thead tr{
+  background: rgb(168, 4, 4);
+  text-align: left;
+  font-weight: bold;
+}
+.tableOcorrenciasPendentes th, .tableOcorrenciasPendentes td{
+  padding: 12px 15px;
+}
+.tableOcorrenciasPendentes tbody tr {
+  border-bottom: 1px solid #cacaca;
+  background-color: #5A0B0B;
+}
+.tableOcorrenciasPendentes tbody tr:nth-of-type(even){
+  background-color: #380606;
+}
+.tableOcorrenciasPendentes tbody tr:hover{
+  background: rgba(255, 102, 0, 0.2);
 }
