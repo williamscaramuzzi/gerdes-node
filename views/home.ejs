@@ -16,17 +16,18 @@
     <%- include("sidebar.ejs") %>
     <div class="main_content">
         <div class="header">
-            Welcome! Have a nice day
+            Div cabeçalho dentro de main content
         </div>
-        <div class="info">
-            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Pariatur laboriosam explicabo officiis incidunt culpa quasi itaque fuga. 
-                Illum, saepe, at accusantium quas facilis quam, numquam suscipit beatae labore nisi dolorum. <br> </div>
-            <div class="divTableOcorrenciasPendentes">
+        <div class="main_body">
+            <div class="tituloEBotaoNovaOcorrencia">
+                <h1>Ocorrências pendentes</h1>
+                <button id="novaOcorrenciaButton"><i class="far fa-plus-square"></i>Nova Ocorrência</button>                
+            </div>
+            <div class="divScrollTabela">
                 <table class="tableOcorrenciasPendentes">
                     <thead>
                         <tr>
-                            <th>Selecionar</th>
+                            <th>Empenhar VTR</th>
                             <th>Fato</th>
                             <th>Endereço</th>
                             <th>Solicitante</th>
@@ -38,7 +39,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <input type="button" value="Selecionar">
+                                <input type="button" value="Empenhar">
                             </td>
                             <td>Furto</td>
                             <td>Rua das Couves nº 156</td>
@@ -49,7 +50,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="button" value="Selecionar">
+                                <input type="button" value="Empenhar">
                             </td>
                             <td>Roubo</td>
                             <td>Rua das Flores nº 156</td>
@@ -60,7 +61,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="button" value="Selecionar">
+                                <input type="button" value="Empenhar">
                             </td>
                             <td>Tráfico de Drogas</td>
                             <td>Rua Floriano Peixoto nº 892</td>
@@ -71,9 +72,99 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="button" value="Selecionar">
+                                <input type="button" value="Empenhar">
                             </td>
                             <td>Perturbação de Sossego</td>
+                            <td>Rua Weimar Torres nº 2080</td>
+                            <td>Maria Aparecida de Jesus</td>
+                            <td>345</td>
+                            <td>5:00</td>
+                            <td>Cabo Carlos</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="Empenhar">
+                            </td>
+                            <td>Perturbação de Sossego</td>
+                            <td>Rua Weimar Torres nº 2080</td>
+                            <td>Maria Aparecida de Jesus</td>
+                            <td>345</td>
+                            <td>5:00</td>
+                            <td>Cabo Carlos</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="Empenhar">
+                            </td>
+                            <td>Perturbação de Sossego</td>
+                            <td>Rua Weimar Torres nº 2080</td>
+                            <td>Maria Aparecida de Jesus</td>
+                            <td>345</td>
+                            <td>5:00</td>
+                            <td>Cabo Carlos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tituloEBotaoNovaOcorrencia"><h1>Ocorrências em atendimento</h1></div>
+            <div class="divScrollTabela">
+                <table class="tableOcorrenciasEmAtendimento">
+                    <thead>
+                        <tr>
+                            <th>Concluir</th>
+                            <th>Fato</th>
+                            <th>Viatura</th>
+                            <th>Endereço</th>
+                            <th>Solicitante</th>
+                            <th>Nº despacho</th>
+                            <th>Tempo desde inserção</th>
+                            <th>Despachante responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="button" value="Concluir">
+                            </td>
+                            <td>Furto</td>
+                            <td>20-1018</td>
+                            <td>Rua das Couves nº 156</td>
+                            <td>José da Silva</td>
+                            <td>342</td>
+                            <td>5:00</td>
+                            <td>Cabo Carlos</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="Concluir">
+                            </td>
+                            <td>Roubo</td>
+                            <td>20-1019</td>
+                            <td>Rua das Flores nº 156</td>
+                            <td>André da Silva</td>
+                            <td>343</td>
+                            <td>4:00</td>
+                            <td>Soldado Tiago</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="Concluir">
+                            </td>
+                            <td>Tráfico de Drogas</td>
+                            <td>20-1020</td>
+                            <td>Rua Floriano Peixoto nº 892</td>
+                            <td>Joana Diniz</td>
+                            <td>344</td>
+                            <td>2:00</td>
+                            <td>Soldado Tiago</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="Concluir">
+                            </td>
+                            <td>Perturbação de Sossego</td>
+                            <td>20-1021</td>
                             <td>Rua Weimar Torres nº 2080</td>
                             <td>Maria Aparecida de Jesus</td>
                             <td>345</td>
