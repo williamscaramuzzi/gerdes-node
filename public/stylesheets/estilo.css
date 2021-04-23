@@ -98,7 +98,7 @@ header#cabecalho .cabecalhoDadosUser{
   color: white;
   font-family: 'Quicksand', sans-serif;
 }
-body#homeBody{
+body{
   background: #323232
 }
 .wrapper{
@@ -155,13 +155,13 @@ body#homeBody{
   /* border: 1px dashed red; */
   width: 400px;
 }
-button#novaOcorrenciaButton{
+button.inserir{
   /* border: 1px dashed red; */
   margin-left: auto;
   padding: 5px;
   
 }
-button#novaOcorrenciaButton i{
+button.inserir i{
   width: 20px;
 }
 

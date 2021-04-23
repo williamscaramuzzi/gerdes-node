@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 var cookieParser = require("cookie-parser");
 var http = require('http');
-
+require('./database/index');
 
 /**
  * setar passport aqui no futuro
@@ -14,6 +14,7 @@ setar a importação de router aqui no futuro
 
 var indexRouter = require("./routes/index");
 var homeRouter = require("./routes/home");
+var equipesRouter = require("./routes/equipes");
 /** 
  * Montando meu app
  * */
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
  */
  app.use("/", indexRouter);
  app.use("/home", homeRouter);
+ app.use("/equipes", equipesRouter);
 /**
  * setar view engine aqui no futuro 
  */
