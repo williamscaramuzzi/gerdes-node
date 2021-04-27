@@ -39,7 +39,7 @@ app.set("view engine", "ejs");
 /**
  * Por fim, começar o setup do servidor HTTP
  */
-var port = '80';
+var port = '3000';
 app.set('port', port);
 var server = http.createServer(app);
 server.listen(port);
