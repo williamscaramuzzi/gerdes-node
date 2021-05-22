@@ -1,186 +1,290 @@
 <!DOCTYPE html>
 <html lang="pt=br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/estilo.css" />
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script>
+        function abrirModalCriar(){
+            document.getElementById('modalOcorrencia').style.display='block';
+            document.getElementById('salvarButton').hidden = true;
+            document.getElementById('criarButton').hidden = false;
+        }
+        function fecharModal() {
+            console.log("Entrou no fechar modal");
+            document.getElementById('formCriarOcorrencia').reset();
+            document.getElementById('modalOcorrencia').style.display = 'none';
+        }
+        async function empenhar(despacho) {
+            document.getElementById('salvarButton').hidden = false;
+            document.getElementById('criarButton').hidden = true;
+            let url = "/home/readocorrencia?id=" + despacho.toString();;
+            await fetch(url).then(response => response.json()).then(oco => {
+                document.getElementById('despachoInput').value = oco.despacho;
+                document.getElementById('fatoSelect').value = oco.fato;
+                document.getElementById('solicitanteInput').value = oco.solicitante;
+                document.getElementById('vitimaInput').value = oco.vitima;
+                document.getElementById('enderecoInput').value = oco.endereco;
+                document.getElementById('viaturaEmpenhadaSelect').value = oco.equipe;
+                document.getElementById('descricaoInput').value = oco.descricao;
+            });
+            document.getElementById('modalOcorrencia').style.display = 'block';
+        }
+        async function salvar() {
+            let obj = {ocorrencia: {}};
+            obj.ocorrencia.despacho = document.getElementById('despachoInput').value;
+            obj.ocorrencia.fato = document.getElementById('fatoSelect').value;
+            obj.ocorrencia.solicitante = document.getElementById('solicitanteInput').value;
+            obj.ocorrencia.vitima = document.getElementById('vitimaInput').value;
+            obj.ocorrencia.vitima = document.getElementById('enderecoInput').value;
+            obj.ocorrencia.equipe = document.getElementById('viaturaEmpenhadaSelect').value;
+            obj.ocorrencia.descricao = document.getElementById('descricaoInput').value;
+            let parametroDoFetchPost = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            }
+            await fetch('/home/updateocorrencia', parametroDoFetchPost).then(response => {
+                console.log(response);
+                fecharModal();
+                if(response) window.location.reload();
+            });
+        }
+    </script>
     <title>Gerenciador de Despachos</title>
 </head>
 
 <%- include("cabecalho.ejs") %>
 
-<body id="homeBody">
-    
-    <%- include("sidebar.ejs") %>
-    <div class="main_content">
-        <div class="header">
-            Div cabeçalho dentro de main content
-        </div>
-        <div class="main_body">
-            <div class="tituloEBotaoNovaOcorrencia">
-                <h1>Ocorrências pendentes</h1>
-                <button class="inserir"><i class="far fa-plus-square"></i>Nova Ocorrência</button>                
-            </div>
-            <div class="divScrollTabela">
-                <table class="tableOcorrenciasPendentes">
-                    <thead>
-                        <tr>
-                            <th>Empenhar VTR</th>
-                            <th>Fato</th>
-                            <th>Endereço</th>
-                            <th>Solicitante</th>
-                            <th>Nº despacho</th>
-                            <th>Tempo desde inserção</th>
-                            <th>Despachante responsável</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="button" value="Empenhar">
-                            </td>
-                            <td>Furto</td>
-                            <td>Rua das Couves nº 156</td>
-                            <td>José da Silva</td>
-                            <td>342</td>
-                            <td>5:00</td>
-                            <td>Cabo Carlos</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" value="Empenhar">
-                            </td>
-                            <td>Roubo</td>
-                            <td>Rua das Flores nº 156</td>
-                            <td>André da Silva</td>
-                            <td>343</td>
-                            <td>4:00</td>
-                            <td>Soldado Tiago</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" value="Empenhar">
-                            </td>
-                            <td>Tráfico de Drogas</td>
-                            <td>Rua Floriano Peixoto nº 892</td>
-                            <td>Joana Diniz</td>
-                            <td>344</td>
-                            <td>2:00</td>
-                            <td>Soldado Tiago</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" value="Empenhar">
-                            </td>
-                            <td>Perturbação de Sossego</td>
-                            <td>Rua Weimar Torres nº 2080</td>
-                            <td>Maria Aparecida de Jesus</td>
-                            <td>345</td>
-                            <td>5:00</td>
-                            <td>Cabo Carlos</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" value="Empenhar">
-                            </td>
-                            <td>Perturbação de Sossego</td>
-                            <td>Rua Weimar Torres nº 2080</td>
-                            <td>Maria Aparecida de Jesus</td>
-                            <td>345</td>
-                            <td>5:00</td>
-                            <td>Cabo Carlos</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" value="Empenhar">
-                            </td>
-                            <td>Perturbação de Sossego</td>
-                            <td>Rua Weimar Torres nº 2080</td>
-                            <td>Maria Aparecida de Jesus</td>
-                            <td>345</td>
-                            <td>5:00</td>
-                            <td>Cabo Carlos</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <body id="homeBody">
+
+        <%- include("sidebar.ejs") %>
+            <div class="main_content">
+                <div id="modalOcorrencia" class="w3-modal">
+                    <div class="w3-modal-content w3-animate-top w3-card-4">
+                        <header class="w3-container w3-indigo">
+                            <span onclick="fecharModal()" class="w3-button w3-display-topright">&times;</span>
+                            <h2>Cadastrar ocorrência</h2>
+                        </header>
+                        <div class="w3-container">
+                            <form action="/home/criarocorrencia" method="POST" id="formCriarOcorrencia">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><label for="despachoInput">Despacho Nº:</label></td>
+                                            <td><input type="text" name="despachoInput" id="despachoInput" disabled
+                                                    placeholder="auto-preenchimento"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="fatoSelect">Fato:</label></td>
+                                            <td><select name="fatoSelect" id="fatoSelect">
+                                                    <option value="Roubo">Roubo</option>
+                                                    <option value="Furto">Furto</option>
+                                                    <option value="Trafico">Tráfico de Drogas</option>
+                                                    <option value="Violencia domestica">Violência Doméstica</option>
+                                                </select></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="solicitanteInput">Solicitante:</label></td>
+                                            <td><input type="text" name="solicitanteInput" id="solicitanteInput" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="vitimaInput">Vítima</label></td>
+                                            <td><input type="text" name="vitimaInput" id="vitimaInput" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="enderecoInput">Endereço</label></td>
+                                            <td><input type="text" name="enderecoInput" id="enderecoInput" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="viaturaEmpenhadaSelect">Viatura a empenhar:</label></td>
+                                            <td><select name="viaturaEmpenhadaSelect" id="viaturaEmpenhadaSelect">
+                                                    <option value="null"></option>
+                                                    <% for(var gu of disponiveis) { %>
+                                                        <option value="<%=gu.viatura%>">
+                                                            <%=gu.viatura%>
+                                                        </option>
+                                                        <% } %>
+                                                </select></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="descricaoInput">Descrição: </label></td>
+                                            <td><textarea name="descricaoInput" id="descricaoInput" cols="30"
+                                                    rows="4"></textarea></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <input type="submit" value="Criar" id="criarButton">
+                                                <button type="button" onclick=salvar() id="salvarButton">Salvar</button>
+                                                <button type="button" onclick=fecharModal()>Cancelar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- FIM DO MODAL -->
+
+                <div class="main_body">
+                    <div class="tituloEBotaoNovaOcorrencia">
+                        <h1>Ocorrências pendentes</h1>
+                        <button class="inserir"
+                            onclick=abrirModalCriar()><i
+                                class="far fa-plus-square"></i>Nova Ocorrência</button>
+                    </div>
+                    <div class="divScrollTabela">
+                        <table class="tableOcorrenciasPendentes">
+                            <thead>
+                                <tr>
+                                    <th>Empenhar VTR</th>
+                                    <th>Fato</th>
+                                    <th>Endereço</th>
+                                    <th>Solicitante</th>
+                                    <th>Nº despacho</th>
+                                    <th>Tempo desde inserção</th>
+                                    <th>Despachante responsável</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var op of ocorrenciaspendentes) { %>
+                                    <tr>
+                                        <td><button id="<%=op.despacho%>" onclick=empenhar(this.id)>Empenhar</button>
+                                        </td>
+                                        <td>
+                                            <%=op.fato%>
+                                        </td>
+                                        <td>
+                                            <%=op.endereco%>
+                                        </td>
+                                        <td>
+                                            <%=op.solicitante%>
+                                        </td>
+                                        <td>
+                                            <%=op.despacho%>
+                                        </td>
+                                        <td>tempo aqui</td>
+                                        <td>
+                                            <%=op.despachante_responsavel%>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <h1>Ocorrências em atendimento</h1>
+                    </div>
+                    <div class="divScrollTabela">
+                        <table class="tableOcorrenciasEmAtendimento">
+                            <thead>
+                                <tr>
+                                    <th>Concluir</th>
+                                    <th>Fato</th>
+                                    <th>Viatura</th>
+                                    <th>Endereço</th>
+                                    <th>Solicitante</th>
+                                    <th>Nº despacho</th>
+                                    <th>Tempo desde inserção</th>
+                                    <th>Despachante responsável</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var oea of ematendimento) { %>
+                                    <tr>
+                                        <td><button id="<%=oea.despacho%>" onclick=empenhar(this.id)>Concluir</button>
+                                        </td>
+                                        <td>
+                                            <%=oea.fato%>
+                                        </td>
+                                        <td>
+                                            <%=oea.equipe%>
+                                        </td>
+                                        <td>
+                                            <%=oea.endereco%>
+                                        </td>
+                                        <td>
+                                            <%=oea.solicitante%>
+                                        </td>
+                                        <td>
+                                            <%=oea.despacho%>
+                                        </td>
+                                        <td>
+                                            tempo aqui
+                                        </td>
+                                        <td>
+                                            <%=oea.despachante_responsavel%>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="div-viaturas">
+                        <div class="viaturas-disponiveis">
+                            <h3>Viaturas Disponíveis</h3>
+                            <table>
+                                <thead>
+                                    <th>Prefixo</th>
+                                    <th>Comandante</th>
+                                    <th>Motorista</th>
+                                </thead>
+                                <tbody id="tbodyDisponiveis">
+                                    <% for(var gu of disponiveis) { %>
+                                        <tr>
+                                            <td>
+                                                <%=gu.viatura%>
+                                            </td>
+                                            <td>
+                                                <%=gu.comandante%>
+                                            </td>
+                                            <td>
+                                                <%=gu.motorista%>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="viaturas-empenhadas">
+                            <h3>Viaturas empenhadas</h3>
+                            <table>
+                                <thead>
+                                    <th>Prefixo</th>
+                                    <th>Comandante</th>
+                                    <th>Motorista</th>
+                                </thead>
+                                <tbody id="tbodyOcupadas">
+                                    <% for(var gu of ocupadas) { %>
+                                        <tr>
+                                            <td>
+                                                <%=gu.viatura%>
+                                            </td>
+                                            <td>
+                                                <%=gu.comandante%>
+                                            </td>
+                                            <td>
+                                                <%=gu.motorista%>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="tituloEBotaoNovaOcorrencia"><h1>Ocorrências em atendimento</h1></div>
-            <div class="divScrollTabela">
-                <table class="tableOcorrenciasEmAtendimento">
-                    <thead>
-                        <tr>
-                            <th>Concluir</th>
-                            <th>Fato</th>
-                            <th>Viatura</th>
-                            <th>Endereço</th>
-                            <th>Solicitante</th>
-                            <th>Nº despacho</th>
-                            <th>Tempo desde inserção</th>
-                            <th>Despachante responsável</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="button" value="Concluir">
-                            </td>
-                            <td>Furto</td>
-                            <td>20-1018</td>
-                            <td>Rua das Couves nº 156</td>
-                            <td>José da Silva</td>
-                            <td>342</td>
-                            <td>5:00</td>
-                            <td>Cabo Carlos</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" value="Concluir">
-                            </td>
-                            <td>Roubo</td>
-                            <td>20-1019</td>
-                            <td>Rua das Flores nº 156</td>
-                            <td>André da Silva</td>
-                            <td>343</td>
-                            <td>4:00</td>
-                            <td>Soldado Tiago</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" value="Concluir">
-                            </td>
-                            <td>Tráfico de Drogas</td>
-                            <td>20-1020</td>
-                            <td>Rua Floriano Peixoto nº 892</td>
-                            <td>Joana Diniz</td>
-                            <td>344</td>
-                            <td>2:00</td>
-                            <td>Soldado Tiago</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" value="Concluir">
-                            </td>
-                            <td>Perturbação de Sossego</td>
-                            <td>20-1021</td>
-                            <td>Rua Weimar Torres nº 2080</td>
-                            <td>Maria Aparecida de Jesus</td>
-                            <td>345</td>
-                            <td>5:00</td>
-                            <td>Cabo Carlos</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    
-    
-</body>
-<footer>
 
-</footer>
+    </body>
+
 
 </html>

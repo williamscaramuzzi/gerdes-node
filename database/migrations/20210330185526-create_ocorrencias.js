@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('ocorrencias', { 
+    await queryInterface.createTable('ocorrencia', { 
       despacho: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -34,6 +34,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      descricao: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       status: {
           type: Sequelize.STRING,
           allowNull: false
@@ -51,7 +55,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('ocorrencias');
+    await queryInterface.dropTable('ocorrencia');
      
   }
 };

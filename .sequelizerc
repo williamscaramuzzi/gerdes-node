@@ -22,3 +22,6 @@ module.exports = {
 
 //para criar uma migration
 //npx sequelize migration:create --name=create_policials ou create_viaturas
+//esse comando cria uma pasta migration dentro da pasta database, e coloca lá um arquivo que vai ter
+//o método de create (up: ) e o de delete (down: ), e eu mesmo vou ter que ir lá implementar como 
+//vai ser o meu create table

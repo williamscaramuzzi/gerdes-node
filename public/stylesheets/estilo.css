@@ -84,7 +84,7 @@ button#botaoEntrar{
 }
 
 header#cabecalho{
-  background-image: url("../images/tituloGerdes.png");
+ 
   background-repeat: no-repeat;
   background-color: #1c1c5f;
   height: 110px;
@@ -94,7 +94,7 @@ header#cabecalho .cabecalhoDadosUser{
   display: flex;
   position: absolute;
   margin-top: -100px;
-  margin-left: 90%;
+  margin-left: 80%;
   color: white;
   font-family: 'Quicksand', sans-serif;
 }
@@ -159,6 +159,7 @@ button.inserir{
   /* border: 1px dashed red; */
   margin-left: auto;
   padding: 5px;
+  height: fit-content;
   
 }
 button.inserir i{
@@ -186,7 +187,7 @@ button.inserir i{
   font-family: 'Quicksand', sans-serif;
 }
 .tableOcorrenciasPendentes thead tr{
-  background: rgb(168, 4, 4);
+  background: rgb(170, 113, 113);
   text-align: left;
   font-weight: bold;
 }
@@ -194,19 +195,19 @@ button.inserir i{
   padding: 1px 1px 1px 10px;
 }
 .tableOcorrenciasPendentes th{
-  background: rgb(168, 4, 4);
+  background: rgb(168, 112, 112);
   position: sticky;
   top: 0; /* Don't forget this, required for the stickiness */
 }
 .tableOcorrenciasPendentes tbody tr {
   border-bottom: 1px solid #cacaca;
-  background-color: #5A0B0B;
+  background-color: #362626;
 }
 .tableOcorrenciasPendentes tbody tr:nth-of-type(even){
-  background-color: #380606;
+  background-color: #362626;
 }
 .tableOcorrenciasPendentes tbody tr:hover{
-  background: rgba(255, 102, 0, 0.2);
+  background: rgba(255, 199, 162, 0.2);
 }
 /* Em atendimento */
 .tableOcorrenciasEmAtendimento {
@@ -219,7 +220,7 @@ button.inserir i{
   font-family: 'Quicksand', sans-serif;
 }
 .tableOcorrenciasEmAtendimento thead tr{
-  background: rgb(168, 138, 4);
+  background: rgb(173, 155, 74);
   text-align: left;
   font-weight: bold;
 }
@@ -227,17 +228,131 @@ button.inserir i{
   padding: 1px 1px 1px 10px;
 }
 .tableOcorrenciasEmAtendimento th{
-  background: rgb(168, 138, 4);
+  background: rgb(167, 148, 66);
   position: sticky;
   top: 0; /* Don't forget this, required for the stickiness */
 }
 .tableOcorrenciasEmAtendimento tbody tr {
   border-bottom: 1px solid #cacaca;
-  background-color: #4d4809;
+  background-color: #383306;
 }
 .tableOcorrenciasEmAtendimento tbody tr:nth-of-type(even){
   background-color: #383306;
 }
 .tableOcorrenciasEmAtendimento tbody tr:hover{
   background: rgba(255, 252, 84, 0.2);
+}
+
+/* Override classe da W3 */
+.w3-modal-content{
+  width: fit-content;
+}
+
+.div-viaturas{
+  margin-top: 2rem;
+  margin-right: 2rem;
+  /* border: 1px dashed red; */
+}
+
+.viaturas-disponiveis{
+  /* border: 1px dashed yellow; */
+  float: left;
+  text-align: left;
+  justify-content: left;
+  width: auto;
+  height: 22vh;
+}
+
+/* Viaturas disponíveis table */
+.viaturas-disponiveis table {
+  border-collapse: collapse;
+  margin-top: 0px;
+  margin-left: 0px;
+  font-size: 0.9em;
+  min-width: 400px;
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+}
+.viaturas-disponiveis table thead tr{
+  background: rgb(68, 170, 128);
+  text-align: left;
+  font-weight: bold;
+}
+.viaturas-disponiveis th, .viaturas-disponiveis td{
+  padding: 1px 1px 1px 10px;
+}
+.viaturas-disponiveis th{
+  background: rgb(52, 170, 71);
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+}
+.viaturas-disponiveis tbody tr {
+  border-bottom: 1px solid #cacaca;
+  background-color: #06380d;
+}
+.viaturas-disponiveis tbody tr:nth-of-type(even){
+  background-color: #06380d;
+}
+.viaturas-disponiveis tbody tr:hover{
+  background: rgba(84, 255, 92, 0.2);
+}
+.viaturas-empenhadas{
+  /* border: 1px dashed yellow; */
+  float: right;
+  text-align: left;
+  width: auto;
+  height: 22vh;
+}
+
+/* Viaturas disponíveis table */
+.viaturas-empenhadas table {
+  border-collapse: collapse;
+  margin-top: 0px;
+  margin-left: 0px;
+  font-size: 0.9em;
+  min-width: 400px;
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+}
+.viaturas-empenhadas table thead tr{
+  background: rgb(136, 64, 35);
+  text-align: left;
+  font-weight: bold;
+}
+.viaturas-empenhadas th, .viaturas-empenhadas td{
+  padding: 1px 1px 1px 10px;
+}
+.viaturas-empenhadas th{
+  background: rgb(146, 63, 48);
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+}
+.viaturas-empenhadas tbody tr {
+  border-bottom: 1px solid #cacaca;
+  background-color: #381006;
+}
+.viaturas-empenhadas tbody tr:nth-of-type(even){
+  background-color: #381006;
+}
+.viaturas-empenhadas tbody tr:hover{
+  background: rgba(255, 90, 84, 0.2);
+}
+.tableequipes table{
+  border-collapse: collapse;
+  margin-top: 0px;
+  margin-left: 0px;
+  font-size: 0.9em;
+  min-width: 400px;
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+}
+.tableequipes thead {
+  background-color: #1e3063;
+}
+.tableequipes tbody tr:nth-of-type(even){
+  background-color: #1d3806;
+}
+.tableequipes tbody tr{
+  border-bottom: 1px solid #cacaca;
+  background-color: #18503f;
 }

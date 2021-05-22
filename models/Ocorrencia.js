@@ -36,6 +36,10 @@ class Ocorrencia extends Sequelize.Model{
               type: Sequelize.STRING,
               allowNull: false
             },
+            descricao: {
+              type: Sequelize.STRING,
+              allowNull: false
+            },
             status: {
                 type: Sequelize.STRING,
                 allowNull: false

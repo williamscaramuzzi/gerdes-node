@@ -11,16 +11,16 @@ router.get('/', function (req, res, next) {
     erros: [],
     dados: undefined
   }
-  Equipe.findAll().then((array_de_registros)=>{
-    if(!array_de_registros){
+  Equipe.findAll().then((rows)=>{
+    if(!rows){
       res.send("<h1>Nenhuma equipe encontrada na tabela</h1>");
     } else {
-      estrutura.dados = array_de_registros;
-      res.render("/", estrutura);
+      estrutura.dados = rows;
+      res.render("equipes", estrutura);
     }
   }).catch((erro)=>{
     estrutura.erros.push(erro);
-    res.json({ lista_de_erros: estrutura.erros.toString});
+    res.json({ lista_de_erros: estrutura.erros});
   });
   
 });
@@ -41,8 +41,28 @@ router.post('/', (req, res, next)=>{
     patrulheiro1: patrulheiro1InputText,
     patrulheiro2: patrulheiro2InputText,
     status: "disponivel"
-  });
-  res.send("<h1>Inseriu a equipe no banco de dados</h1>");
+  }).then(retorno=>res.redirect("equipes"));
+  
+
+});
+router.post("/descompor", (req, res, next)=>{
+  const id  = req.body.id;
+  console.log(req.body);
+  Equipe.destroy({where: {viatura: id}});
+  res.send("sucesso");
+});
+
+router.get('/getDispo', (req, res, next)=>{
+  let clausulaWhere = {where: {status: "disponivel"}};
+  Equipe.findAll(clausulaWhere).then(rows=>{
+    if(!rows){
+      res.send("<h1>Nenhuma equipe encontrada na tabela</h1>");
+    } else {
+      res.json(rows);
+    }
+  }).catch((err=>{
+    res.json({erro: err});
+  }));
 
 });
 module.exports = router;
